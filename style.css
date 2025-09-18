@@ -1,0 +1,114 @@
+/* General styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #4c6ef5;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: #ffeb3b;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Bird card */
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+#random-btn {
+  background: #4c6ef5;
+  color: white;
+}
+
+#random-btn:hover {
+  background: #364fc7;
+}
+
+#fav-btn {
+  background: #ff922b;
+  color: white;
+}
+
+#fav-btn:hover {
+  background: #e8590c;
+}
+
+/* Favorites page */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card-grid .card {
+  padding: 1rem;
+  max-width: 280px;
+}
+
+.card-grid button {
+  background: #e03131;
+  color: white;
+}
+
+.card-grid button:hover {
+  background: #c92a2a;
+}
