@@ -7,7 +7,12 @@ const birdFact = document.getElementById("bird-fact");
 const randomButtonEl = document.getElementById("random-btn");
 const linkContainer = document.getElementById("bird-link");
 
+const favoriteTab = document.getElementById("favorites-container");
+const favoriteButton = document.getElementById("fav-btn");
+
 let birds = [];
+let favorites = [];
+let currentBird = [];
 
 async function loadBirdName() {
   const res = await fetch("birds.txt");
@@ -38,6 +43,7 @@ const loadBird = async () => {
     nameBirdImage(birdData);
     setBirdFact(birdData);
     setBirdLink(birdData);
+    currentBird = birdData;
 
     //console.log(birdData);
   } catch (error) {
@@ -76,3 +82,5 @@ function setBirdLink(data) {
     linkContainer.innerHTML = "";
   }
 }
+
+function renderFavorites() {}
