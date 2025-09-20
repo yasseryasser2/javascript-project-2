@@ -5,6 +5,7 @@ const birdImg = document.getElementById("bird-img");
 
 const birdFact = document.getElementById("bird-fact");
 const randomButtonEl = document.getElementById("random-btn");
+const linkContainer = document.getElementById("bird-link");
 
 let birds = [];
 
@@ -34,7 +35,11 @@ const loadBird = async () => {
 
     const birdData = await birdFetch.json();
     birdNameEl.innerHTML = birdData.title;
-    console.log(birdData);
+    nameBirdImage(birdData);
+    setBirdFact(birdData);
+    setBirdLink(birdData);
+
+    //console.log(birdData);
   } catch (error) {
     console.log(error);
   }
@@ -45,3 +50,29 @@ loadBird();
 randomButtonEl.addEventListener("click", function () {
   loadBird();
 });
+
+function nameBirdImage(data) {
+  if (data.thumbnail) {
+    document.getElementById("bird-img").src = data.thumbnail.source;
+    document.getElementById("bird-img").style.display = "block";
+  } else {
+    document.getElementById("bird-img").style.display = "none";
+  }
+}
+
+function setBirdFact(data) {
+  if (data.extract) {
+    document.getElementById("bird-fact").innerText = data.extract;
+  } else {
+    document.getElementById("bird-fact").innerText = "No fact available.";
+  }
+}
+
+function setBirdLink(data) {
+  const linkContainer = document.getElementById("bird-link");
+  if (data.content_urls && data.content_urls.desktop) {
+    linkContainer.innerHTML = `<a href="${data.content_urls.desktop.page}" target="_blank">Read more on Wikipedia</a>`;
+  } else {
+    linkContainer.innerHTML = "";
+  }
+}
